@@ -3,8 +3,8 @@ package SmartCar;
 public class Employee extends Person {
     private int empNo;
 
-    public Employee(String firstName, String lastName, String email, String addressLine1, String addressLine2, String city, String eirCode, int empNo) {
-        super(firstName, lastName, email, addressLine1, addressLine2, city, eirCode);
+    public Employee(String firstName, String lastName, String email, String address, int empNo) {
+        super(firstName, lastName, email, address);
         this.empNo = empNo;
     }
 
@@ -19,7 +19,8 @@ public class Employee extends Person {
     @Override
     public String toString() {
         return String.format("""
-                Employee Number: %s %s
-                """,empNo, super.toString());
+                Employee No: %s
+                %s
+                """,empNo,super.toString());
     }
 }

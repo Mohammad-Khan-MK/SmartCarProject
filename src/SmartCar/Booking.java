@@ -1,22 +1,28 @@
 package SmartCar;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class Booking {
     private int bookingID;
     private int vehicleID;
     private int custNo;
     private LocalDate pickUpDate;
+    private LocalTime pickUpTime;
     private LocalDate returnDate;
-    private String pickUpLocation;
+    private LocalTime returnTime;
+    private Location pickUpLocation;
 
-    public Booking(int bookingID, int vehicleID, int custNo, LocalDate pickUpDate, LocalDate returnDate, String pickUpLocation) {
+    public Booking(int bookingID, int vehicleID, int custNo, LocalDate pickUpDate, LocalTime pickUptime, LocalDate returnDate, LocalTime returnTime, String pickUpLocation) {
         this.bookingID = bookingID;
         this.vehicleID = vehicleID;
         this.custNo = custNo;
         this.pickUpDate = pickUpDate;
+        this.pickUpTime = pickUptime;
         this.returnDate = returnDate;
-        this.pickUpLocation = pickUpLocation;
+        this.returnTime = returnTime;
+        this.pickUpLocation = Location.valueOf(pickUpLocation);
     }
 
     public int getBookingID() {
@@ -51,6 +57,14 @@ public class Booking {
         this.pickUpDate = pickUpDate;
     }
 
+    public LocalTime getPickUpTime() {
+        return pickUpTime;
+    }
+
+    public void setPickUpTime(LocalTime pickUptime) {
+        this.pickUpTime = pickUptime;
+    }
+
     public LocalDate getReturnDate() {
         return returnDate;
     }
@@ -59,29 +73,30 @@ public class Booking {
         this.returnDate = returnDate;
     }
 
-    public String getPickUpLocation() {
+    public LocalTime getReturnTime() {
+        return returnTime;
+    }
+
+    public void setReturnTime(LocalTime returnTime) {
+        this.returnTime = returnTime;
+    }
+
+    public Location getPickUpLocation() {
         return pickUpLocation;
     }
 
-    public void setPickUpLocation(String pickUpLocation) {
+    public void setPickUpLocation(Location pickUpLocation) {
         this.pickUpLocation = pickUpLocation;
     }
 
 
-//"Booking{" +
-//        "bookingID=" + bookingID +
-//            ", vehicleID=" + vehicleID +
-//            ", custNo=" + custNo +
-//            ", pickUpDate=" + pickUpDate +
-//            ", returnDate=" + returnDate +
-//            ", pickUpLocation='" + pickUpLocation + '\'' +
-//            '}'
     @Override
     public String toString() {
         return String.format("""
                 Booking ID: %d | Vehicle ID: %d | Cust No: %d
-                Pick Up Date: %s | Return Date: %s 
+                Pick Up Date: %s | Pick Up Time: %s
+                Return Date: %s  | Return Time: %s 
                 Pick Up Location: %s |
-                """,bookingID,vehicleID,custNo,pickUpDate,returnDate,pickUpLocation);
+                """,bookingID,vehicleID,custNo,pickUpDate,pickUpTime,returnDate,returnTime,pickUpLocation);
     }
 }

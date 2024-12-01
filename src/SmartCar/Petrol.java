@@ -7,8 +7,8 @@ public abstract class Petrol extends Vehicle {
     private int co2;
 
 
-    public Petrol(int id, String regNo, String model, LocalDate regDate, String location, double engine, int co2) {
-        super(id, regNo, model, regDate, location);
+    public Petrol(int id, String regNo,String manufacturer, String model, LocalDate regDate, Location location, double engine, int co2) {
+        super(id, regNo, manufacturer, model, regDate, location);
         this.engine = engine;
         this.co2 = co2;
     }
@@ -29,10 +29,11 @@ public abstract class Petrol extends Vehicle {
     public void setCo2(int co2) {
         this.co2 = co2;
     }
-
     @Override
     public String toString() {
-        return String.format("""
-                """);
+        return String.format(""" 
+        %sEngine Size: %.1f cc  CO2 Emission: %d g/km
+        """, super.toString(), engine, co2);  // Ensure engine and co2 are correctly passed
     }
+
 }

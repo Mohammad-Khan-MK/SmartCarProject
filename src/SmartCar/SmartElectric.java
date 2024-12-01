@@ -3,36 +3,18 @@ package SmartCar;
 import java.time.LocalDate;
 
 public class SmartElectric extends Vehicle {
-    private double hourlyRate;
-    private double dailyRate;
     private double battery;
     private int range;
-    private int efficiency;
+    private double efficiency;
+    private static  double hourlyRate=14;
+    private static  double dailyRate=60;
 
-    public SmartElectric(int id, String regNo, String model, LocalDate regDate, String location, double hourlyRate, double dailyRate, double battery, int range, int efficiency) {
-        super(id, regNo, model, regDate, location);
-        this.hourlyRate = hourlyRate;
-        this.dailyRate = dailyRate;
+
+    public SmartElectric(int id, String regNo, String manufacturer, String model, LocalDate regDate, Location location, double battery, int range, double efficiency) {
+        super(id, regNo, manufacturer, model, regDate, location);
         this.battery = battery;
         this.range = range;
         this.efficiency = efficiency;
-    }
-
-
-    public double getHourlyRate() {
-        return hourlyRate;
-    }
-
-    public void setHourlyRate(double hourlyRate) {
-        this.hourlyRate = hourlyRate;
-    }
-
-    public double getDailyRate() {
-        return dailyRate;
-    }
-
-    public void setDailyRate(double dailyRate) {
-        this.dailyRate = dailyRate;
     }
 
     public double getBattery() {
@@ -51,19 +33,34 @@ public class SmartElectric extends Vehicle {
         this.range = range;
     }
 
-    public int getEfficiency() {
+    public double getEfficiency() {
         return efficiency;
     }
 
-    public void setEfficiency(int efficiency) {
+    public void setEfficiency(double efficiency) {
         this.efficiency = efficiency;
     }
 
+    public static double getHourlyRate() {
+        return hourlyRate;
+    }
 
+    public static void setHourlyRate(double hourlyRate) {
+        SmartElectric.hourlyRate = hourlyRate;
+    }
 
+    public static double getDailyRate() {
+        return dailyRate;
+    }
+
+    public static void setDailyRate(double dailyRate) {
+        SmartElectric.dailyRate = dailyRate;
+    }
     @Override
     public String toString() {
-        return String.format("""
-                """,super.toString());
+        return String.format(""" 
+                %sBattery: %.1f kWh Range: %d km Efficiency: %.2f kWh/km
+                """,super.toString(),battery,range,efficiency);
     }
 }
+
