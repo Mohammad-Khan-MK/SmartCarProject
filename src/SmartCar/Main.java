@@ -76,7 +76,7 @@ public class Main {
                 }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "An error occurred: " + e.getMessage());
-                break; // Exit the loop if an error occurs
+                break;
             }
         }
 
@@ -359,8 +359,8 @@ public class Main {
                     SmartVan.setDailyRate(newDailyRate);
                     break;
                 case "e":
-                    SmartElectric.setHourlyRate(newHourlyRate); // Assuming there is a SmartElectric class
-                    SmartElectric.setDailyRate(newDailyRate); // Assuming there is a SmartElectric class
+                    SmartElectric.setHourlyRate(newHourlyRate);
+                    SmartElectric.setDailyRate(newDailyRate);
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Invalid Vehicle Type!");
@@ -473,7 +473,7 @@ public class Main {
                 return Location.FOYNES;
             default:
                 JOptionPane.showMessageDialog(null, "Invalid location code. Please try again.");
-                return null; // Return null if input is invalid
+                return null;
         }
     }
 
