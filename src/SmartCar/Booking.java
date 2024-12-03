@@ -2,7 +2,6 @@ package SmartCar;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 
 public class Booking {
     private int bookingID;
@@ -14,7 +13,7 @@ public class Booking {
     private LocalTime returnTime;
     private Location pickUpLocation;
 
-    public Booking(int bookingID, int vehicleID, int custNo, LocalDate pickUpDate, LocalTime pickUptime, LocalDate returnDate, LocalTime returnTime, String pickUpLocation) {
+    public Booking(int bookingID, int vehicleID, int custNo, LocalDate pickUpDate, LocalTime pickUptime, LocalDate returnDate, LocalTime returnTime, Location pickUpLocation) {
         this.bookingID = bookingID;
         this.vehicleID = vehicleID;
         this.custNo = custNo;
@@ -22,12 +21,13 @@ public class Booking {
         this.pickUpTime = pickUptime;
         this.returnDate = returnDate;
         this.returnTime = returnTime;
-        this.pickUpLocation = Location.valueOf(pickUpLocation);
+        this.pickUpLocation = pickUpLocation;
     }
 
     public int getBookingID() {
         return bookingID;
     }
+
 
     public void setBookingID(int bookingID) {
         this.bookingID = bookingID;
@@ -99,4 +99,6 @@ public class Booking {
                 Pick Up Location: %s |
                 """,bookingID,vehicleID,custNo,pickUpDate,pickUpTime,returnDate,returnTime,pickUpLocation);
     }
+
+
 }

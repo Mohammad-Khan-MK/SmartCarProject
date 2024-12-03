@@ -33,7 +33,7 @@ public abstract class Petrol extends Vehicle {
     public String toString() {
         return String.format(""" 
         %sEngine Size: %.1f cc  CO2 Emission: %d g/km
-        """, super.toString(), engine, co2);  // Ensure engine and co2 are correctly passed
+        """, super.toString(), engine, co2);
     }
 
 }

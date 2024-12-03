@@ -13,32 +13,42 @@ public class SmartCity extends Petrol {
 
     }
 
+
     public static double getHourlyRate() {
         return hourlyRate;
     }
 
-    public static void setHourlyRate(double hourlyRate) {
-        SmartCity.hourlyRate = hourlyRate;
+    public static void setHourlyRate(double newHourlyRate) {
+        if (hourlyRate > 0) {
+            hourlyRate = newHourlyRate;
+        } else {
+            throw new IllegalArgumentException("Hourly rate must be a positive number");
+        }
+
     }
 
     public static double getDailyRate() {
         return dailyRate;
     }
 
-    public static void setDailyRate(double dailyRate) {
-        SmartCity.dailyRate = dailyRate;
+    public static void setDailyRate(double newDailyRate) {
+        if (newDailyRate > 0) {
+            dailyRate = newDailyRate;
+        } else {
+            throw new IllegalArgumentException("Daily rate must be a positive number");
+        }
+
     }
 
 
     @Override
     public String toString() {
         return String.format("""
-              %s""",super.toString());
+                %sHourly Rate: %.2f  Daily Rate: %.2f
+                """, super.toString(), getHourlyRate(), getDailyRate());
     }
 
-
-    }
-
+}
 
 
 

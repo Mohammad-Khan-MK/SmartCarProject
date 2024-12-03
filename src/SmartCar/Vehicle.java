@@ -68,13 +68,16 @@ public abstract class Vehicle {
     public void setLocation(Location location) {
         this.location = location;
     }
+
     @Override
     public String toString() {
         return String.format("""
             Vehicle ID: %d  Vehicle Registration No: %s
-            Manufacturer: %s   Model: %s   Reg Date: %s
+            Manufacturer: %s  Model: %s  Reg Date: %s
             Location: %s
             """, id, regNo, manufacturer, model, regDate, location);
     }
+
+
 
 }

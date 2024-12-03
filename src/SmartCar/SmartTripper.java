@@ -13,27 +13,40 @@ public class SmartTripper extends Petrol {
 
     }
 
+
     public static double getHourlyRate() {
         return hourlyRate;
     }
 
-    public static void setHourlyRate(double hourlyRate) {
-        SmartTripper.hourlyRate = hourlyRate;
+    public static void setHourlyRate(double newHourlyRate) {
+        if(hourlyRate>0){
+            hourlyRate = newHourlyRate;
+        }
+        else{
+            throw new IllegalArgumentException("Hourly rate must be a positive number");
+        }
+
     }
 
     public static double getDailyRate() {
         return dailyRate;
     }
 
-    public static void setDailyRate(double dailyRate) {
-        SmartTripper.dailyRate = dailyRate;
+    public static void setDailyRate(double newDailyRate) {
+        if(newDailyRate>0){
+            dailyRate = newDailyRate;
+        }
+
+        else{throw new IllegalArgumentException("Daily rate must be a positive number");}
+
     }
 
-    @Override
-    public String toString() {
-        return String.format("""
-              %s""",super.toString());
-    }
+@Override
+public String toString() {
+    return String.format("""
+              %sHourly Rate: %.2f  Daily Rate: %.2f
+              """, super.toString(), getHourlyRate(), getDailyRate());
+}
 
 
 }

@@ -37,30 +37,45 @@ public class SmartElectric extends Vehicle {
         return efficiency;
     }
 
-    public void setEfficiency(double efficiency) {
+    public void setEfficiency(int efficiency) {
         this.efficiency = efficiency;
     }
+
 
     public static double getHourlyRate() {
         return hourlyRate;
     }
 
-    public static void setHourlyRate(double hourlyRate) {
-        SmartElectric.hourlyRate = hourlyRate;
+    public static void setHourlyRate(double newHourlyRate) {
+        if(newHourlyRate>0){
+            hourlyRate = newHourlyRate;
+        }
+        else{
+            throw new IllegalArgumentException("Hourly rate must be a positive number");
+        }
+
     }
 
     public static double getDailyRate() {
         return dailyRate;
     }
 
-    public static void setDailyRate(double dailyRate) {
-        SmartElectric.dailyRate = dailyRate;
+    public static void setDailyRate(double newDailyRate) {
+        if(newDailyRate>0){
+            dailyRate = newDailyRate;
+        }
+
+        else{throw new IllegalArgumentException("Daily rate must be a positive number");}
+
     }
+
+
     @Override
     public String toString() {
         return String.format(""" 
-                %sBattery: %.1f kWh Range: %d km Efficiency: %.2f kWh/km
-                """,super.toString(),battery,range,efficiency);
+                %sBattery: %.1f KWh Range: %d Km Efficiency: %.2f Kwh/km
+                Hourly Rate: %s  Daily Rate: %s
+                """,super.toString(),battery,range,efficiency,hourlyRate,dailyRate);
     }
 }
 
