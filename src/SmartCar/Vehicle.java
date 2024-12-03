@@ -69,6 +69,8 @@ public abstract class Vehicle {
         this.location = location;
     }
 
+
+
     @Override
     public String toString() {
         return String.format("""

@@ -7,7 +7,7 @@ public class SmartElectric extends Vehicle {
     private int range;
     private double efficiency;
     private static  double hourlyRate=14;
-    private static  double dailyRate=60;
+    private static  double dailyRate=70;
 
 
     public SmartElectric(int id, String regNo, String manufacturer, String model, LocalDate regDate, Location location, double battery, int range, double efficiency) {
@@ -68,6 +68,8 @@ public class SmartElectric extends Vehicle {
         else{throw new IllegalArgumentException("Daily rate must be a positive number");}
 
     }
+
+
 
 
     @Override
